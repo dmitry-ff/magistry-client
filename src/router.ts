@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import App from "./App.tsx";
-import { Poll } from "./pages/Poll.tsx";
+import { Poll } from "./pages/Poll/Poll.tsx";
 
 export const router = createBrowserRouter([
   {
