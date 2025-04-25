@@ -25,11 +25,14 @@ export const Poll = () => {
 
   const { mutate } = useMutation({
     mutationFn: () => {
-      fetch(
+      return fetch(
         {
           method: "POST",
-          body: {},
-          url: '"http://localhost:8080/*какой то роут*"',
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({}),
+          url: "http://127.0.0.1:5000/api/predict",
         },
         {},
       );
@@ -78,7 +81,9 @@ export const Poll = () => {
           {...getInputProps("age")}
         />
       </QuestionSegment>
-      <Button w="fit-content">Оценить риск диабета</Button>
+      <Button w="fit-content" onClick={mutate}>
+        Оценить риск диабета
+      </Button>
     </Flex>
   );
 };
