@@ -25,17 +25,10 @@ export const Poll = () => {
 
   const { mutate } = useMutation({
     mutationFn: () => {
-      return fetch(
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({}),
-          url: "http://127.0.0.1:5000/api/predict",
-        },
-        {},
-      );
+      return fetch("http://127.0.0.1:5000/api/predict", {
+        method: "POST",
+        body: JSON.stringify({}),
+      });
     },
     mutationKey: ["TestMutation"],
   });
